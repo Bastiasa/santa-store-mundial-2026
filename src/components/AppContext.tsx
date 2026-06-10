@@ -3,7 +3,8 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 type AppContextMap = {
     data: {
-        shirtPicked?: string
+        shirtPicked?: string;
+        heroBannerContainer?: HTMLDivElement;
     },
 
     setData(newData: Partial<AppContextMap["data"]>): void;

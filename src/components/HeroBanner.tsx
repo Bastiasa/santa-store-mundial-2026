@@ -1,16 +1,29 @@
 import { Button, Image, Stack, Title } from "@mantine/core";
 
 import jamesImage from '../assets/catalog/james.jpeg';
+import { useEffect, useRef } from "react";
+import { useAppContext } from "./AppContext";
 
 function MoreInfoButton() {
+    const { data: { heroBannerContainer } } = useAppContext();
+    
+
+    const onButtonClicked = () => {
+        window.scrollTo({ top: (heroBannerContainer?.offsetHeight ?? 0), behavior: 'smooth' });
+    }
+
     return (
-        <Button className="mx-auto text- block!">
+        <Button
+            onClick={onButtonClicked}
+            className="mx-auto text- block!">
             Más información
         </Button>
     );
 }
 
 function Label1() {
+
+
     return (
 
         <Stack>
@@ -27,8 +40,19 @@ function Label1() {
 }
 
 export function HeroBanner() {
+  const herobannerContainerRef = useRef<HTMLDivElement>(null);
+
+    const { setData } = useAppContext();
+
+    useEffect(() => {
+        setData({
+            heroBannerContainer: herobannerContainerRef.current!
+        })
+    }, []);
+
+
     return (
-        <div className="sm:h-dvh relative p-12 w-full bg-black">
+        <div  ref={herobannerContainerRef} className="sm:h-dvh relative p-12 w-full bg-black">
 
             <div className="sm:left-10 sm:translate-x-0 sm:text-6xl sm:absolute text-5xl">
                 <Label1/>
