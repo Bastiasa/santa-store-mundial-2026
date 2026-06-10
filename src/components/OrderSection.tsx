@@ -20,10 +20,15 @@ export function OrderSection() {
                 <p>
                     Estás a un clic de completar la orden de tu diseño
                 </p>
+
+                <p className="text-2xl">
+                    Esta camiseta cuesta $50.000
+                </p>
                 
                 <a
                     
                     href={`https://wa.me/573245219027?text=${encodeURIComponent(whatsappMessage)}`}>
+
                     <Button className="w-full! animate-bounce">
                         Ordenar
                     </Button>
