@@ -10,7 +10,7 @@ export function OrderSection() {
     } = useAppContext();
 
 
-    const whatsappMessage = `¡Hola! Me gustaría estampar este diseño:\n${window.location.protocol}//${window.location.host}${shirtPicked}`
+    const whatsappMessage = `¡Hola! Me gustaría estampar este diseño:\n${shirtPicked}`
 
 
     const orderPrompt = (
